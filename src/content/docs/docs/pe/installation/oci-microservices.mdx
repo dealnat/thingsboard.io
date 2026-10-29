@@ -448,8 +448,26 @@ kubectl logs job/trendz-create-db -n thingsboard
 
 ```bash
 ./k8s-deploy-trendz.sh
+```
+
+Expose Trendz on the same listener as the web UI from [Step 11](#step-11-configure-the-gateway):
+
+<Tabs>
+<TabItem label="HTTP">
+
+```bash
 kubectl apply -f gateway/routes/trendz.yml
 ```
+
+</TabItem>
+<TabItem label="HTTPS">
+
+```bash
+sed "s|sectionName: http$|sectionName: https|" gateway/routes/trendz.yml | kubectl apply -f -
+```
+
+</TabItem>
+</Tabs>
 
 ## Troubleshooting
 
