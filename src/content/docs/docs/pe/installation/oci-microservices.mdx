@@ -404,6 +404,14 @@ kubectl apply -f gateway/routes/edge.yml
 
 The gateway forwards TCP traffic on port 7070 to ThingsBoard. Use the reserved IP address as **CLOUD_RPC_HOST** in Edge connection parameters.
 
+### 11.5 Configure Remote Integrations Access (Optional)
+
+```bash
+kubectl apply -f gateway/routes/integrations.yml
+```
+
+The gateway forwards TCP traffic on port 9090 to ThingsBoard. Use the reserved IP address, or your domain, as **RPC_HOST** in the <DocLink product={Products.PE} path="user-guide/integrations/remote">remote integration</DocLink> configuration.
+
 ## Step 12. Create Your Administrator Account
 
 <CreateAdminAccountSteps variant="cloud" />
